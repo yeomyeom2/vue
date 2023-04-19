@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        var div = document.querySelector('#app'); //jquery 선택자와 동일한 역할
+        // console.log(div);
+        var str = 'Holaaaa~~~~'
+        div.innerHTML = str;
+
+        str = 'Hola!!'; //바뀐 데이터 내용이 화면에 반영되지 않음
+        div.innerHTML = str;
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <script>
+        function Bark(name, sound) {
+            this.name = name;
+            this.sound = sound;
+            this.bark = function() {
+                console.log(sound + name);
+            };
+        }
+
+        const dog_1 = new Bark('하이', '멍멍1');
+        dog_1.bark();
+
+        const dog_2 = new Bark('하이', '멍멍2');
+        dog_2.bark();
+
+        const dog_3 = new Bark('하이', '멍멍3');
+        dog_3.bark();
+    </script>
+</body>
+</html>
