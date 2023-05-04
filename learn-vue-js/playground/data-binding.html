@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:id="uuid" v-bind:class="name">{{ num }}</div><!-- 실제로 <div id="abc1234">{{ num }}</div> -->
+        <div>{{ doubleNum }}</div>
+        <div v-if="loading">Loading...</div>
+        <div v-else>Test user has been logged in</div>
+        <div v-show="loading">Loading..</div><!-- if는 dom 아예 제거, show는 inline style display로 show/hide -->
+
+        <!-- todo: input box를 만들고 입력된 값을 태그에 출력 -->
+        <!-- https://vuejs.org/guide/essentials/forms.html#form-input-bindings -->
+        <input type="text" v-model="message" placeholder="Edit me..">
+        <p>Message is {{ message }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+                uuid: 'abc1234',
+                name: 'text-blue',
+                loading: true,
+                message: ''
+            },
+            computed: { //num 조작 시 같이 변경됨
+                doubleNum: function() {
+                    return this.num * 2;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
