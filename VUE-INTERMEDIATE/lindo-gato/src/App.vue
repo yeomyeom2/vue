@@ -133,7 +133,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-* {margin: 0;padding: 0;}
+* {margin:0;padding:0;}
 img {width:100%;height:100%;object-fit: contain;}
 .side-btn  {position:absolute;bottom:25px;right:25px;}
 .btn-refresh  {width: 42px;height: 42px;border-radius: 50%;border: 0;background: #32dcc8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%23FFF' fill-rule='nonzero' d='M4.553 3.694a8.333 8.333 0 0 1 12.272 11.09L14.167 10h2.5A6.667 6.667 0 0 0 5.383 5.19l-.83-1.496Zm10.895 12.612A8.333 8.333 0 0 1 3.175 5.216L5.833 10h-2.5a6.667 6.667 0 0 0 11.284 4.81l.83 1.496Z'/%3E%3C/g%3E%3C/svg%3E") 50% 50% no-repeat;background-size: 20px 20px;}
