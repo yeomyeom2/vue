@@ -140,6 +140,7 @@ img {width:100%;height:100%;object-fit: contain;}
 .btn-download  {display: block;width: 42px;height: 42px;border-radius: 50%;border: 0;background: #32dcc8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%23f03e3e' d='M12.6 1.5c2.43 0 4.4 2.027 4.4 4.865 0 5.676-6 8.919-8 10.135-2-1.216-8-4.46-8-10.135C1 3.527 3 1.5 5.4 1.5c1.488 0 2.8.81 3.6 1.622.8-.811 2.112-1.622 3.6-1.622z'/%3E%3C/svg%3E") 50% 50% no-repeat;background-size: 20px 20px;}
 
 .center-btn {position: fixed;left: 0;bottom:10rem;width: 100%;text-align: center;}
+.center-btn button {display: inline-block;height: 38px;margin: 3px;padding: 0 18px;border-radius: 12px;border: 2px solid #e6e8ec;background-color: rgba(255,255,255,0.7);color: #1a2b3b;font-size: 14px;font-weight: bold;}
 
 .loading  {position: fixed;left: 0;top: 0;display: flex;justify-content:center;align-items:center;width: 100%;height: 100%;background-color:rgba(0,0,0,0.7);}
 .loading img  {width: 100px;height: 100px;}
