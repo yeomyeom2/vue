@@ -22,6 +22,8 @@ body	{
 	margin: 0;
 	padding: 0;
 }
+ul a	{text-decoration: none;}
+ul a.router-link-exact-active	{text-decoration: underline;}
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s ease;

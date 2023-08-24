@@ -1,22 +1,16 @@
 <template>
-	<ul>
-		<li v-for="item in this.$store.state.news" v-bind:key="item">
-			<a :href="item.url">{{ item.title }}</a>
-			<time>{{ item.time_ago }}</time> by <router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>
-		</li>
-	</ul>
+	<div><ListItem></ListItem></div>
 </template>
 
 <script>
+import ListItem from '../components/ListItem.vue';
 
 export default {
-	created() {
-		this.$store.dispatch('FETCH_NEWS');
+	components: {
+		ListItem,
 	}
-
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>
