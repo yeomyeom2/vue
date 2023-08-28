@@ -1,14 +1,4 @@
 <template>
-	<!-- <ul class="list">
-		<li v-for="item in fetchedAsk" v-bind:key="item" class="post">
-			<span class="points">{{ item.points }}</span>
-			<span>
-				<router-link v-bind:to="`item/${item.id}`">{{ item.title }}</router-link>
-				<time>{{ item.time_ago }}</time>
-				by <router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>
-			</span>
-		</li>
-	</ul> -->
 	<div>
 		<ListItem></ListItem>
 	</div>

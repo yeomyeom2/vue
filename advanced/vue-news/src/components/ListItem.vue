@@ -1,14 +1,23 @@
 <template>
   <div>
 	<ul class="list">
-		<li v-for="item in this.$store.state.news" v-bind:key="item" class="post">
+		<li v-for="item in listItems" v-bind:key="item" class="post">
 			<!-- 포인트 영역 -->
-			<span class="points">{{ item.points }}</span>
+			<span class="points">{{ item.points || 0 }}</span>
 			<!-- 기타 정보 영역 -->
 			<span>
-				<a :href="item.url" class="tit-news">{{ item.title }}</a>
-				<time>{{ item.time_ago }}</time>
-				by <router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>
+				<!-- 타이틀 영역 -->
+				<template v-if="item.domain">
+					<a :href="item.url" class="tit-news">{{ item.title }}</a>
+				</template>
+				<template v-else>
+					<router-link v-bind:to="`item/${item.id}`">{{ item.title }}</router-link>
+				</template>
+				<time>{{ item.time_ago }}</time> by
+				<router-link
+					v-if="item.user"
+					v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>
+				<a :href="item.url" v-else>{{ item.domain }}</a>
 			</span>
 		</li>
 	</ul>
@@ -18,8 +27,6 @@
 <script>
 export default {
 	created() {
-		// this.$store.dispatch('FETCH_NEWS');
-		console.log(this.$route.path === '/news');
 		const name = this.$route.name;
 		if(name === 'news') {
 			this.$store.dispatch('FETCH_NEWS');
@@ -30,7 +37,19 @@ export default {
 		}
 	},
 	computed: {
-		
+		listItems() {
+			const name = this.$route.name;
+
+			if(name === 'news') {
+				return this.$store.state.news;
+			} else if (name === 'ask') {
+				return this.$store.state.ask;
+			} else if (name === 'jobs') {
+				return this.$store.state.jobs;
+			}
+
+			return name;
+		}
 	}
 }
 </script>
