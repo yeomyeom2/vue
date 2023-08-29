@@ -1,29 +1,30 @@
 <template>
 	<div>
 		<section>
-			<!-- 질문 상세 정보 -->
-			<div class="user-container">
-				<div>User</div>
-				<div class="user-desc">
-					<router-link :to="`/user/${fetchedItem.user}`">{{ fetchedItem.user }}</router-link>
-					<div class="time">{{ fetchedItem.time_ago }}</div>
-				</div>
-			</div>
+			<!-- 사용자 상세 정보 -->
+			<UserProfile :info="fetchedItem">
+				<router-link slot="username" :to="`/user/${fetchedItem.user}`">{{ fetchedItem.user }}</router-link>
+				<template slot="time">{{ 'Posted ' + fetchedItem.time_ago }}</template>
+			</UserProfile>
+		</section>
+		<section>
 			<strong>{{ fetchedItem.title }}</strong>
 		</section>
 		<section>
 			<!-- 질문 댓글 -->
 			<div v-html="fetchedItem.content"></div>
 		</section>
-		<!-- <div>{{ fetchedItem.title }}</div>
-		<div>{{ fetchedItem.content }}</div> -->
 	</div>
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue';
 import { mapGetters } from 'vuex';
 
 export default {
+	components: {
+		UserProfile,
+	},
 	computed: {
 		...mapGetters(['fetchedItem']),
 	},
@@ -36,13 +37,5 @@ export default {
 </script>
 
 <style scoped>
-.user-container	{
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	padding: 20px;
-}
-.time	{
-	opacity: 0.5;
-}
+
 </style>
