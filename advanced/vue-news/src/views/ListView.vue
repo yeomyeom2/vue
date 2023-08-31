@@ -1,7 +1,7 @@
 <template>
-	<div>
-		<ListItem></ListItem>
-	</div>
+  <div>
+	<ListItem></ListItem>
+  </div>
 </template>
 
 <script>
@@ -14,5 +14,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>
