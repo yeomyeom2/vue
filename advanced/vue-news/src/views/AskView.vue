@@ -46,7 +46,7 @@ export default {
 	// 				console.log(error);
 	// 			});
 	// 	}, 3000);
-	// }
+	// },
 }
 </script>
 
