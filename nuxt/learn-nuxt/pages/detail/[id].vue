@@ -5,14 +5,15 @@
 		<img :src="data.imageUrl" :alt="data.name">
 		<div>name: {{ data.name }}</div>
 		<div>price: {{ data.price }}</div>
-		<!-- <button type="button" @click="addToCart">Add to Cart</button> -->
+		<button type="button" @click="addToCart">Add to Cart</button>
 	</div>
   </div>
 </template>
 
 <script setup>
-const router = useRoute();
-const id = router.params.id;
+const route = useRoute();
+const router = useRouter();
+const id = route.params.id;
 
 const { data } = await useAsyncData(
   'mountains',
@@ -20,6 +21,11 @@ const { data } = await useAsyncData(
 )
 
 // console.log(data);
+
+const addToCart = () => {
+	// console.log(111)
+	router.push('/cart');
+};
 </script>
 
 <style scoped>
