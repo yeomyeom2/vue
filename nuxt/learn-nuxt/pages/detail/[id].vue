@@ -11,6 +11,9 @@
 </template>
 
 <script setup>
+import { useCartStore } from "../../stores/index"
+const store = useCartStore();
+
 const route = useRoute();
 const router = useRouter();
 const id = route.params.id;
@@ -24,6 +27,7 @@ const { data } = await useAsyncData(
 
 const addToCart = () => {
 	// console.log(111)
+	store.addCartItem(data.value);
 	router.push('/cart');
 };
 </script>

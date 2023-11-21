@@ -4,5 +4,11 @@ export default defineNuxtConfig({
   devServer: {
 	port: 4000,
   },
-  css: ['~/assets/css/reset.css']
+  css: ['~/assets/css/reset.css'],
+  modules: [
+	'@pinia/nuxt',
+  ],
+  pinia: {
+	storesDirs: ['./stores/**']
+  }
 })
