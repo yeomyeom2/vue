@@ -23,12 +23,15 @@ const { data } = await useAsyncData(
   () => $fetch(`http://localhost:3000/products/${id}`)
 )
 
-// console.log(data);
+const addToCart = async () => {
+	console.log('before');
+	await $fetch('http://localhost:3000/carts', {
+		method: 'POST',
+		body: data.value,
+	});
 
-const addToCart = () => {
-	// console.log(111)
-	store.addCartItem(data.value);
 	router.push('/cart');
+	console.log('after');
 };
 </script>
 

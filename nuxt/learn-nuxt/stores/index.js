@@ -7,12 +7,7 @@ export const useCartStore = defineStore('cart', {
 		}
 	},
 	actions: {
-		addCartItem(cartItem) {
-			const newCartItem = {
-				...cartItem,
-				imageUrl: `${cartItem.imageUrl}?random=${Math.random()}`
-			}
-			this.cartItems.push(newCartItem)
-		}
+		
+	
 	}
 })

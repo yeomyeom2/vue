@@ -24,8 +24,10 @@
 	const { data } = await useFetch('http://localhost:3000/products');
 	products.list = data;
 
+	// console.log(1, products.list)
+
 	const moveToDetailPage = id => {
-		console.log(id);
+		// console.log(id);
 		router.push(`detail/${id}`);
 	};
 
