@@ -33,6 +33,20 @@ const addToCart = async () => {
 	router.push('/cart');
 	console.log('after');
 };
+
+useHead({
+  title: `Nuxt Shopping Detail Page - ${data.value.name}`,
+  meta: [
+	  { name: 'description', content: 'Here is datail page !' },
+	  { name: 'og:title', content: '상품 상세 페이지' },
+	  { name: 'og:description', content: '상품의 상세 정보를 확인해보세요.' },
+	  { name: 'og:image', content: 'https://picsum.photos/640' },
+  ],
+  bodyAttrs: {
+	  class: 'test'
+  },
+  script: [ { innerHTML: 'console.log(\'Hello world\')' } ]
+  })
 </script>
 
 <style scoped>

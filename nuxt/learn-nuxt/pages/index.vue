@@ -18,6 +18,17 @@
   </template>
   
   <script setup>
+  useHead({
+	title: 'Nuxt Shopping Home',
+	meta: [
+		{ name: 'description', content: 'Here is home !' }
+	],
+	bodyAttrs: {
+		class: 'test'
+	},
+	script: [ { innerHTML: 'console.log(\'Hello world\')' } ]
+	})
+
   import { ref } from 'vue';
   	const router = useRouter();
 	const products = reactive({});
