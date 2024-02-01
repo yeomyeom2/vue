@@ -1,15 +1,17 @@
 <template>
-	<div>
+	<div class="wrap-slide">
 		<Swiper
-			:space-between="50"
-			:loop="true"
+			v-bind="slideOptions"
+			:modules="[SwiperNavigation]"
+			:navigation = "true"
+
 		>
 			<SwiperSlide
 				v-for="(slide, index) in slidesFubao"
 				:key="index"
 			>
-			<img :src="`${slide}`" alt="1" />
-		</SwiperSlide>
+				<img :src="`${slide}`" alt="1" />
+			</SwiperSlide>
 		</Swiper>
 
 		<!-- <img src="@/assets/img/fubao_1.jpeg"/> -->
@@ -18,6 +20,8 @@
 </template>
 
 <script setup>
+const swiper = useSwiper();
+
 const slidesFubao = [
 	'_nuxt/assets/img/fubao_1.jpeg',
 	'_nuxt/assets/img/fubao_2.jpeg',
@@ -26,12 +30,26 @@ const slidesFubao = [
 	'_nuxt/assets/img/fubao_5.jpeg',
 	'_nuxt/assets/img/fubao_6.jpeg'
 ];
+
+const slideOptions	= {
+	spaceBetween: 40,
+	loop: true,
+	centeredSlides: true,
+	loopedSlides: 2,
+}
+
 </script>
 
 <style lang="scss" scoped>
+.wrap-slide	{overflow: hidden;}
 .swiper	{
-	width: 80%;
-	height: 60rem;
+	overflow-x: visible;
+	width: 50%;
+	&>div	{background-color: #000;}
 	img	{height: 100%;object-fit: contain;}
 }
+
+</style>
+<style lang="scss">
+.wrap-slide .swiper-wrapper	{align-items:center;}
 </style>

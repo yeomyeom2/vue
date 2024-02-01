@@ -1,30 +1,27 @@
 <template>
   <button type="button"
 	class="btn-mode"
-	@click="store.modeLight = !store.modeLight">
+	@click="storeMode.modeLight = !storeMode.modeLight">
 		<span class="hide">
-			<span v-if="store.modeLight">Dark</span>
-			<span v-if="!store.modeLight">Light</span>
+			<span v-if="storeMode.modeLight">Dark</span>
+			<span v-if="!storeMode.modeLight">Light</span>
 			모드로 변경
 		</span>
 	</button>
 </template>
 
 <script setup>
-import { modeStore } from '../stores/mode'
-const store = modeStore();
+const storeMode = modeStore();
 </script>
 
 <style scoped lang="scss">
-@import '~/assets/css/_var.scss';
-
 button	{
 	position: relative;
 	display: block;
 	width: 48px;
 	height: 26px;
 	border-radius: 20px;
-	background-color: #e6e8ec;
+	background-color: #ccc;
     background-image: none;
 
 	&::after	{

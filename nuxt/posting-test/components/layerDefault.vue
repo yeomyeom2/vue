@@ -17,8 +17,6 @@ const dimmedCloseFunc = e => {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/_var.scss';
-
 .wrap-layer	{
 	position: fixed;
 	left: 0;
@@ -29,6 +27,7 @@ const dimmedCloseFunc = e => {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,0.8);
+	z-index: 1;
 	&.on	{display: flex;}
 
 	.layer	{
@@ -37,7 +36,7 @@ const dimmedCloseFunc = e => {
 		justify-content: center;
 		align-items: center;
 		min-width:32rem;
-		min-height: 120px;
+		min-height: 12rem;
 		padding: 40px 50px 30px;
 		border-radius: 20px;
     	background-color: #fff;

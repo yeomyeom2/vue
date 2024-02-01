@@ -8,6 +8,7 @@
 			<button type="button" @click="copyUrl(`/detail/${post.id}`)">URL Copy</button>
 		</PostingItem>
 	</ul>
+			<!-- {{ storeWindow.windowWidth }} -->
   </section>
   <LayerDefault :class="{on: stateCopy}" @layerCloseEmit="stateCopy = false"></LayerDefault>
 </template>
@@ -16,20 +17,32 @@
 let sliceCount = ref(5);
 let stateCopy = ref(false);
 const { data: posts, error } = await useFetch('https://jsonplaceholder.typicode.com/posts');
-let windowWidth;
 
-function postingCountChange() { //분기에 따라 포스팅 개수 다름(5 or 10)
-	windowWidth = ref(window.innerWidth);
+import { mediaqueryStore } from '../stores/mediaquery'
+const storeMediaquery = mediaqueryStore();
+
+function checkMobile() { //모바일 분기 체크
+	let windowWidth = ref(window.innerWidth);
 	windowWidth.value < 1280
-		? sliceCount.value = 5
-		: sliceCount.value = 10
-	// console.log(sliceCount);
+	? storeMediaquery.isMobile = true
+	: storeMediaquery.isMobile = false
 }
 
+function postingCountChange() { //분기에 따라 포스팅 개수 다름(5 or 10)
+	storeMediaquery.isMobile
+		? sliceCount.value = 5
+		: sliceCount.value = 10
+}
 onMounted(() => {
+	checkMobile();
 	postingCountChange();
-	window.addEventListener('resize', postingCountChange);
+	window.addEventListener('resize', () => {
+		checkMobile();
+		postingCountChange();
+		console.log('resize');
+	});
 })
+//unmount
 
 function copyUrl(url) { //url copy
 	navigator.clipboard.writeText(url);
@@ -40,15 +53,29 @@ function copyUrl(url) { //url copy
 <style scoped lang="scss">
 @import '~/assets/css/_var.scss';
 .list-posting	{
+	$color-border: #ebedf2;
+
 	margin-top: 1rem;
-	border-top: 1px solid #ebedf2;
+	border-top: 1px solid $color-border;
 
 	>li	{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 1.2rem 1rem;
-		border-bottom: 1px solid #ebedf2;
+		border-bottom: 1px solid $color-border;
+	}
+}
+
+.mode-dark	{
+	.list-posting	{
+		$color-border: #28282b;
+
+		border-top: 1px solid $color-border;
+
+		>li	{
+			border-bottom: 1px solid $color-border;
+		}
 	}
 }
 </style>
