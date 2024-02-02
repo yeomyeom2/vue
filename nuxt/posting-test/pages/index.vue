@@ -39,10 +39,14 @@ onMounted(() => {
 	window.addEventListener('resize', () => {
 		checkMobile();
 		postingCountChange();
-		console.log('resize');
 	});
 })
-//unmount
+onUnmounted(() => {
+	window.addEventListener('resize', () => {
+		checkMobile();
+		postingCountChange();
+	});
+});
 
 function copyUrl(url) { //url copy
 	navigator.clipboard.writeText(url);

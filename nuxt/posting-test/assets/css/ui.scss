@@ -1,9 +1,7 @@
 //이벤트 css reset
 //version 1.3.0
 
-@import '_var';
 .wrap	{
-	// --color-navy: $color-navy;
 	--color-navy: #1a2b3b;
 	display: flex;flex-direction: column;min-height: 100vh;color: var(--color-navy);
 	&.mode-dark	{
@@ -14,9 +12,6 @@
 .hide	{overflow:hidden;position:absolute;left:0;top:0;width:1px;height:1px;padding:0;border:0;clip:rect(1px, 1px, 1px, 1px);clip-path:inset(50%);}
 section	{padding: 30px 25px;}
 .tit	{font-size: 1.9rem;}
-
-
-// .swiper-wrapper	{align-items:center;}
 
 @media screen and (min-width:1280px) {
 	html 	{font-size: 20px;}
