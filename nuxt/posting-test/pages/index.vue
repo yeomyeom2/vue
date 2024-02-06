@@ -18,7 +18,6 @@ let sliceCount = ref(5);
 let stateCopy = ref(false);
 const { data: posts, error } = await useFetch('https://jsonplaceholder.typicode.com/posts');
 
-import { mediaqueryStore } from '../stores/mediaquery'
 const storeMediaquery = mediaqueryStore();
 
 function checkMobile() { //모바일 분기 체크

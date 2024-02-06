@@ -10,6 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-vue": "^9.21.1",
     "nuxt": "^3.9.1",
     "sass": "^1.69.7",
     "vue": "^3.4.10",
@@ -17,7 +21,10 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-nuxt": "^4.0.0",
     "nuxt-swiper": "^1.2.2",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+	"prettier": "^3.2.5"
   }
 }

@@ -2,23 +2,33 @@
 	<div class="wrap-slide">
 		<Swiper
 			v-bind="slideOptions"
+			v-if="storeMediaquery.isMobile"
 		>
 			<SwiperSlide
 				v-for="(slide, index) in slidesFubao"
 				:key="index"
 			>
-				<img :src="`${slide}`" alt="1" />
+				<img :src="`${slide}`" :alt="'푸바옹 ' + (index + 1)" />
 			</SwiperSlide>
 		</Swiper>
 
+		<ul class="list-slide"
+			v-if="!storeMediaquery.isMobile"
+		>
+			<li
+				v-for="(slide, index) in slidesFubao"
+				:key="index"
+			>
+				<img :src="`${slide}`" :alt="'푸바옹 ' + (index + 1)">
+			</li>
+		</ul>
 		<!-- <img src="@/assets/img/fubao_1.jpeg"/> -->
 		
 	</div>
 </template>
 
 <script setup>
-const swiper = useSwiper();
-console.log(swiper, 1111);
+const storeMediaquery = mediaqueryStore();
 
 const slidesFubao = [
 	'_nuxt/assets/img/fubao_1.jpeg',
@@ -39,6 +49,8 @@ const slideOptions	= {
 	loopedSlides: 2,
 }
 
+const a = '';
+
 </script>
 
 <style lang="scss" scoped>
@@ -52,7 +64,17 @@ const slideOptions	= {
 		width: 50%;
 	}
 }
+.list-slide	{
+	overflow-x: scroll;
+	white-space: nowrap;
 
+	>li	{
+		display: inline-block;
+		width: 400px;
+		margin: 0 20px;
+		vertical-align: middle;
+	}
+}
 </style>
 <style lang="scss">
 .wrap-slide	{
