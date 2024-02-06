@@ -1,16 +1,16 @@
 <template>
 	<SlideImg></SlideImg>
-  <section class="sect-posting">
-	<h1 class="tit">글 목록</h1>
-	<ul class="list-posting">
-		<PostingItem v-for="(post, index) in posts.slice(0, sliceCount)" :key="index">
-			<NuxtLink :to="`/detail/${post.id}`">{{ post.title }}</NuxtLink>
-			<button type="button" @click="copyUrl(`/detail/${post.id}`)">URL Copy</button>
-		</PostingItem>
-	</ul>
-			<!-- {{ storeWindow.windowWidth }} -->
-  </section>
-  <LayerDefault :class="{on: stateCopy}" @layerCloseEmit="stateCopy = false"></LayerDefault>
+	<section class="sect-posting">
+		<h1 class="tit">글 목록</h1>
+		<ul class="list-posting">
+			<PostingItem v-for="(post, index) in posts.slice(0, sliceCount)" :key="index">
+				<NuxtLink :to="`/detail/${post.id}`">{{ post.title }}</NuxtLink>
+				<button type="button" @click="copyUrl(`/detail/${post.id}`)">URL Copy</button>
+			</PostingItem>
+		</ul>
+				<!-- {{ storeWindow.windowWidth }} -->
+	</section>
+	<LayerDefault :class="{on: stateCopy}" @layerCloseEmit="stateCopy = false"></LayerDefault>
 </template>
 
 <script setup>
@@ -54,7 +54,6 @@ function copyUrl(url) { //url copy
 </script>
 
 <style scoped lang="scss">
-@import '~/assets/css/_var.scss';
 .list-posting	{
 	$color-border: #ebedf2;
 
